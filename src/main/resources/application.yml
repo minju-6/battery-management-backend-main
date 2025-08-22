@@ -1,0 +1,54 @@
+spring:
+#  application:
+#    name: bms-backend
+#
+#  security:
+#    filter:
+#      order: 10
+#
+  mvc:
+    static-path-pattern: /image/**
+  datasource:
+    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://59.1.135.248:32432/battery-management
+    url: jdbc:postgresql://localhost:35433/battery-management
+    username: bmsuser
+    password: bmsuser
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  profiles:
+    active: default
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: 20000
+mqtt:
+  broker: tcp://223.130.161.125:1883
+  subMqttClientId: subMqttClientId
+  pubMqttClientId: pubMqttClientId
+  username: "user"
+  password: "1111"
+  topic: "application/41/device/+/rx"
+  downlinkTopic: "application/32/device/DevEUI/command/down"
+
+jwt:
+  secret: secret12343dsjfklsdjjflksddfksdljfklsdjweiopwe23
+
+security:
+  permittedUrls: /authenticate/**, /test/**, /image/**
+#logging:
+#  level:
+#    net:
+#      ttddyy:
+#        dsproxy:
+#          listener: debug

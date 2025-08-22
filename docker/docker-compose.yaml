@@ -1,0 +1,14 @@
+version: "3"
+services:
+  battery-management-db:
+    image: postgres:15.4
+    container_name: battery-management-db
+    ports:
+      - "35433:5432"
+    environment:
+      POSTGRES_USER: bmsuser
+      POSTGRES_PASSWORD: bmsuser
+      POSTGRES_DB: battery-management
+
+    volumes:
+      - ./db/postgres/data:/var/lib/postgresql/data

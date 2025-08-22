@@ -1,0 +1,47 @@
+name: Build and Push to NCR
+
+on:
+  pull_request:
+#    types: [ closed ]
+    branches: [ release ]
+
+env:
+  NCR_REGISTRY: things-first-registry.kr.ncr.ntruss.com
+  NCR_REPOSITORY: bms-backend-repo
+  IMAGE_NAME: bms-backend
+
+jobs:
+  build-and-push:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build with Gradle
+        run: ./gradlew build -x test
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to NCR
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.NCR_REGISTRY }}
+          username: ${{ secrets.NCR_ACCESS_KEY }}
+          password: ${{ secrets.NCR_SECRET_KEY }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.NCR_REGISTRY }}/${{ env.NCR_REPOSITORY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.NCR_REGISTRY }}/${{ env.NCR_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ github.run_number}}
