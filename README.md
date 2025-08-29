@@ -33,7 +33,7 @@
 ![Cloud](https://img.shields.io/badge/Cloud-AWS-%23232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 
-## 주요 기능
+## 📊 예시 이미지
 
 | 로그인 / 회원 관리 | 대시보드 | 배터리 관리 | 배터리 로깅 | 펄스 관리 |
 |-----------------|----------|-----------|------------|-------------|
