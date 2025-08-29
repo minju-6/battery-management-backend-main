@@ -31,10 +31,9 @@
 ### 인프라 및 배포 환경
 ![OS](https://img.shields.io/badge/OS-Ubuntu%2024.04.1%20LTS-%23E95420?style=for-the-badge&logo=ubuntu&logoColor=white)  
 ![Cloud](https://img.shields.io/badge/Cloud-AWS-%23232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-   
-![서비스 예시](https://via.placeholder.com/800x400?text=Service+Preview)
 
-## 2. 주요 기능
+
+## 주요 기능
 
 | 로그인 / 회원 관리 | 대시보드 | 배터리 관리 | 배터리 로깅 | 펄스 관리 |
 |-----------------|----------|-----------|------------|-------------|
@@ -42,9 +41,8 @@
 | 사용자 인증, 가입, 권한 관리 | 실시간 데이터 시각화 | 통계 및 보고서 제공 | 환경 설정, 테마 변경 | 알림 및 메시지 관리 |
 
 > ⚠️ 현재는 서비스 배포가 중단된 상태이므로, 예시 이미지를 사용했습니다.
-  
+
+
 ## 📧 연락처 정보
 alswn9691@naver.com  
 
-  
-본 프로젝트는 ~~ 프로젝트입니다.
